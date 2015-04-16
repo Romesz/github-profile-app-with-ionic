@@ -3,8 +3,11 @@ angular.module('starter.services', [])
   console.log('%c githubProfile factory init', 'color:green;');
   
   return {
-    get: function(githubProfileId) {
-      return $http.get('https://api.github.com/users/' + githubProfileId)
+    getGithubProfile: function(githubProfileId) {
+      return $http.get('https://api.github.com/users/' + githubProfileId);
+    },
+    getRepos: function(githubProfileId) {
+      return $http.get('https://api.github.com/users/' + githubProfileId + '/repos');
     }
   };
 }]);

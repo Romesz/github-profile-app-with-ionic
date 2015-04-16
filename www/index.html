@@ -42,23 +42,32 @@
           The user name is: {{githubUserName}}
         </p>
         
-        
-        <div class="card"  ng-if="githubUserName">
-          <div class="item item-text-wrap">
-            <img ng-src="{{account.avatar_url}}" style="width: 64px; height: 64px">
-            <p>
-              {{account.name}}
-            </p>
-            <p>
-              {{account.email}}
-            </p>
-            <p>
-              {{account.name}} has {{account.public_repos}} public 
-              <span ng-if="account.public_repos >= 2">repositories.</span>
-              <span ng-if="account.public_repos < 2">repository.</span>
-            </p>
+        <article ng-if="githubUserName">
+          <div class="card">
+            <div class="item item-text-wrap">
+              <img ng-src="{{account.avatar_url}}" style="width: 64px; height: 64px">
+              <p>
+                {{account.name}}
+              </p>
+              <p>
+                {{account.email}}
+              </p>
+              <p>
+                {{account.name}} has {{account.public_repos}} public 
+                <span ng-if="account.public_repos >= 2">repositories.</span>
+                <span ng-if="account.public_repos < 2">repository.</span>
+              </p>
+            </div>
           </div>
-        </div>
+          <div class="list" ng-repeat="repo in repos">
+              <a class="item item-thumbnail-left" href="{{repo.html_url}}" ng-click="openRepo($event, repo.html_url)">
+                <img ng-src="{{account.avatar_url}}">
+                <h2>{{repo.name}}</h2>
+                <p>{{repo.description}}</p>
+                <p>{{repo.pushed_at}}</p>
+              </a>
+          </div>
+        </article>
       </ion-content>
     </ion-view>
   </body>
