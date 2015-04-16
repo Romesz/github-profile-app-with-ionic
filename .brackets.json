@@ -1,0 +1,9 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Users/Romano.Firtermaiszte/Documents/GitHub/ionic/ionic-get-started/www/js/services.js",
+        "C:/Users/Romano.Firtermaiszte/Documents/GitHub/ionic/ionic-get-started/gulpfile.js",
+        "C:/Users/Romano.Firtermaiszte/Documents/GitHub/ionic/ionic-get-started/www/lib/ionic/js/ionic.min.js",
+        "C:/Users/Romano.Firtermaiszte/Documents/GitHub/ionic/ionic-get-started/www/lib/ionic/js/ionic.js",
+        "C:/Users/Romano.Firtermaiszte/Documents/GitHub/ionic/ionic-get-started/www/lib/ionic/js/ionic.bundle.min.js"
+    ]
+}

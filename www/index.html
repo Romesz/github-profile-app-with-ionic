@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+  <body ng-app="gitHubApp">
+
+  <div class="tabs-striped tabs-color-assertive">
+      <div class="tabs">
+        <a class="tab-item active" href="#">
+          <i class="icon ion-home"></i>
+          Github
+        </a>
+      </div>
+    </div>
+    
+    <ion-view ng-controller="gitHubCtrl" view-title="{{account.login}}">
+      <ion-content class="padding">
+        
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Github User Name" id="githubUserName" ng-change="inputType()" ng-model="githubUserName">
+          </label>
+        </div>
+        <p ng-if="githubUserName">
+          The user name is: {{githubUserName}}
+        </p>
+        
+        
+        <div class="card"  ng-if="githubUserName">
+          <div class="item item-text-wrap">
+            <img ng-src="{{account.avatar_url}}" style="width: 64px; height: 64px">
+            <p>
+              {{account.name}}
+            </p>
+            <p>
+              {{account.email}}
+            </p>
+            <p>
+              {{account.name}} has {{account.public_repos}} public 
+              <span ng-if="account.public_repos >= 2">repositories.</span>
+              <span ng-if="account.public_repos < 2">repository.</span>
+            </p>
+          </div>
+        </div>
+      </ion-content>
+    </ion-view>
+  </body>
+</html>
