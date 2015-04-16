@@ -1,4 +1,8 @@
-var app = angular.module('starter.controllers', []);
+var app = angular.module('starter.controllers', ['ionic']);
+
+app.controller('appCtrl', function($scope) {
+  $scope.isIOS = ionic.Platform.isIOS();
+});
 
 app.controller('gitHubCtrl',  function($scope, $window, $http, githubProfile) {
   console.log('%c gitHubCtrl controller init', 'color:green;');

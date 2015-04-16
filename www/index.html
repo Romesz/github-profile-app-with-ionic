@@ -19,9 +19,15 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
   </head>
-  <body ng-app="gitHubApp">
-
-  <div class="tabs-striped tabs-color-assertive">
+  <body ng-app="gitHubApp" ng-controller="appCtrl">
+    
+    <ion-header-bar align-title="center" class="bar-positive" ng-if="isIOS">
+      <h1 class="title">Github Search Profiles</h1>
+    </ion-header-bar>
+    <!-- IOS view -->
+    
+  
+    <div class="tabs-striped tabs-color-assertive" ng-if="!isIOS">
       <div class="tabs">
         <a class="tab-item active" href="#">
           <i class="icon ion-home"></i>
@@ -29,6 +35,7 @@
         </a>
       </div>
     </div>
+    <!-- Android and Browser view -->
     
     <ion-view ng-controller="gitHubCtrl" view-title="{{account.login}}">
       <ion-content class="padding">
@@ -70,5 +77,10 @@
         </article>
       </ion-content>
     </ion-view>
+    
+    <ion-footer-bar align-title="center" class="bar-positive" ng-if="isIOS">
+      <h3 class="title">Created by Romano Firtermaiszter</h3>
+    </ion-footer-bar>
+    <!-- IOS view -->
   </body>
 </html>

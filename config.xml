@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.ionicgetstarted292402" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>ionic-get-started</name>
+  <name>Github Search Profiles</name>
   <description>
-        An Ionic Framework and Cordova project.
+        An Ionic Framework and Cordova project to search Github profies and repos.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="firtermaiszter.romano@gmail.com" href="">
+      Firtermaiszter Romano
     </author>
   <content src="index.html"/>
   <access origin="*"/>
