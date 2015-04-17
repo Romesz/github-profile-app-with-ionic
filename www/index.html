@@ -25,62 +25,59 @@
       <h1 class="title">Github Search Profiles</h1>
     </ion-header-bar>
     <!-- IOS view -->
+
+    <ion-content class="padding" id="ionContForDebug" ng-controller="gitHubCtrl">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Github User Name" id="githubUserName" ng-change="inputType()" ng-model="githubUserName">
+        </label>
+      </div>
+      <p ng-if="githubUserName">
+        The user name is: {{githubUserName}}
+      </p>
+
+      <article ng-if="githubUserName">
+        <div class="card">
+          <div class="item item-text-wrap">
+            <img ng-src="{{account.avatar_url}}" style="width: 64px; height: 64px">
+            <p>
+              {{account.name}}
+            </p>
+            <p>
+              {{account.email}}
+            </p>
+            <p>
+              {{account.name}} has {{account.public_repos}} public 
+              <span ng-if="account.public_repos >= 2">repositories.</span>
+              <span ng-if="account.public_repos < 2">repository.</span>
+            </p>
+          </div>
+        </div>
+        <div class="list" ng-repeat="repo in repos">
+            <a class="item item-thumbnail-left" href="{{repo.html_url}}" ng-click="openRepo($event, repo.html_url)">
+              <img ng-src="{{account.avatar_url}}">
+              <h2>{{repo.name}}</h2>
+              <p>{{repo.description}}</p>
+              <p>{{repo.pushed_at}}</p>
+            </a>
+        </div>
+      </article>
+    </ion-content>
     
-  
-    <div class="tabs-striped tabs-color-assertive" ng-if="!isIOS">
+    <ion-footer-bar align-title="center" class="bar-positive" ng-if="isIOS">
+      <h3 class="title">Created by Romano Firtermaiszter</h3>
+    </ion-footer-bar>
+    <!-- IOS view -->
+    
+    
+    <ion-footer-bar class="tabs-striped tabs-color-assertive" ng-if="!isIOS">
       <div class="tabs">
         <a class="tab-item active" href="#">
           <i class="icon ion-home"></i>
           Github
         </a>
       </div>
-    </div>
-    <!-- Android and Browser view -->
-    
-    <ion-view ng-controller="gitHubCtrl" view-title="{{account.login}}">
-      <ion-content class="padding">
-        
-        <div class="list">
-          <label class="item item-input">
-            <input type="text" placeholder="Github User Name" id="githubUserName" ng-change="inputType()" ng-model="githubUserName">
-          </label>
-        </div>
-        <p ng-if="githubUserName">
-          The user name is: {{githubUserName}}
-        </p>
-        
-        <article ng-if="githubUserName">
-          <div class="card">
-            <div class="item item-text-wrap">
-              <img ng-src="{{account.avatar_url}}" style="width: 64px; height: 64px">
-              <p>
-                {{account.name}}
-              </p>
-              <p>
-                {{account.email}}
-              </p>
-              <p>
-                {{account.name}} has {{account.public_repos}} public 
-                <span ng-if="account.public_repos >= 2">repositories.</span>
-                <span ng-if="account.public_repos < 2">repository.</span>
-              </p>
-            </div>
-          </div>
-          <div class="list" ng-repeat="repo in repos">
-              <a class="item item-thumbnail-left" href="{{repo.html_url}}" ng-click="openRepo($event, repo.html_url)">
-                <img ng-src="{{account.avatar_url}}">
-                <h2>{{repo.name}}</h2>
-                <p>{{repo.description}}</p>
-                <p>{{repo.pushed_at}}</p>
-              </a>
-          </div>
-        </article>
-      </ion-content>
-    </ion-view>
-    
-    <ion-footer-bar align-title="center" class="bar-positive" ng-if="isIOS">
-      <h3 class="title">Created by Romano Firtermaiszter</h3>
     </ion-footer-bar>
-    <!-- IOS view -->
+    <!-- Android and Browser view -->
   </body>
 </html>
